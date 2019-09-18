@@ -33,30 +33,28 @@ tentang penulisan README.md pada github pada link
 ## Tutorial 2
 ### What I have learned today
 
-####Pertanyaan 1: Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut:
-http://localhost:8080/restoran/add?idRestoran=1&nama=PanyuFC&alamat=Kantin%2
-0Fasilkom&nomorTelepon=14022
+#### Pertanyaan 1: Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut:
+http://localhost:8080/restoran/add?idRestoran=1&nama=PanyuFC&alamat=Kantin%20Fasilkom&nomorTelepon=14022
 
-####Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
+#### Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi
 
 Whitelabel Error Page, karena template belum ada
 
-####Pertanyaan 2: Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut:
-http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin
-%20FIK
+#### Pertanyaan 2: Cobalah untuk menambahkan sebuah restoran dengan mengakses link berikut:
+http://localhost:8080/restoran/add?idRestoran=2&nama=KentukuFC&alamat=Kantin%20FIK
 
-####Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
+#### Apa yang terjadi? Jelaskan mengapa hal tersebut dapat terjadi.
 
 Whitelabel Error Page, karena untuk melakukan add restoran nomorTelepon harus ada
 
-####Pertanyaan 3: Jika Papa APAP ingin melihat restoran PanyuFC, link apa yang harus diakses?
+#### Pertanyaan 3: Jika Papa APAP ingin melihat restoran PanyuFC, link apa yang harus diakses?
 
 http://localhost:8080/restoran/view?idRestoran=1
 http://localhost:8080/restoran/view?idRestoran=1
 
-####Pertanyaan 4: Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses
+#### Pertanyaan 4: Tambahkan 1 contoh restoran lainnya sesukamu. Lalu cobalah untuk mengakses
 http://localhost:8080/restoran/viewall
-####apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
+#### apa yang akan ditampilkan? Sertakan juga bukti screenshotmu.
 
 link tersebut akan menampilkan semua restoran yang ada pada listRestoran.
 
