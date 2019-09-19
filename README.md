@@ -60,5 +60,3 @@ link tersebut akan menampilkan semua restoran yang ada pada listRestoran.
 
 ![alt text](https://i.ibb.co/XL2t3Bb/image.png "Screenshot viewall")
 
-
-
