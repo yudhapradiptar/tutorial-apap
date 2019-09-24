@@ -24,7 +24,7 @@ public class AgeController {
             model.addAttribute("age", null);
             model.addAttribute("birthdate", "-");
         }
-        return "HitungUmurPage.html";
+        return "HitungUmurPage";
     }
 
     @GetMapping(value = "/hitung-umur")
