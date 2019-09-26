@@ -60,3 +60,21 @@ link tersebut akan menampilkan semua restoran yang ada pada listRestoran.
 
 ![alt text](https://i.ibb.co/XL2t3Bb/image.png "Screenshot viewall")
 
+
+## Tutorial 3
+### What I have learned today
+
+#### 1. Pada class MenuDb, terdapat method findByRestoranIdRestoran, apakah kegunaan dari method tersebut?
+method findByRestoranIdRestoran adalah method untuk yang mengemabalikan list menu dari restoran yang memiliki id sama dengan idRestoran.
+
+#### 2. Pada class RestoranController, jelaskan perbedaan method addRestoranFormPage dan addRestoranSubmit?
+addRestoranFormPage adalah untuk membuat restoran baru dan mengisi data restoran dari form add restoran
+addRestoranSubmit adalah untuk menambah restoran baru dengan data-data yang telah diisi sebelumnya ke table restoran
+
+#### 3. Jelaskan apa kegunaan dari JPA Repository?
+
+
+#### 4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara RestoranModel dan MenuModel dibuat?
+
+#### 5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+
