@@ -78,7 +78,7 @@ Java Persistence API (JPA) adalah merupakan tool untuk mengolah data relasional.
 Di kelas RestoranModel di bagian @OneToMany menjelaskan bahwa relasi antara RestoranModel dan MenuModel adalah one-to-many.
 Di kelas MenuModel dibagian @ManyToOne menjelaskan bahwa relasi antara MenuModel dan RestoranModel adalah many-to-one
 
-![alt text](https://i.ibb.co/1X8JykN/Untitled-Diagram.png "Screenshot relasi")
+![alt text](https://i.ibb.co/fN4G6sW/Untitled-Diagram.png "Screenshot relasi")
 
 #### 5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
 FetchType.LAZY : untuk jika ingin mengeload menu saat hanya disuruh. misalnya ingin mengeload id menu harus dilakukan method getId().
