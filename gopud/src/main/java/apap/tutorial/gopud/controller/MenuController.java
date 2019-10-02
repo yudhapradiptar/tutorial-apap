@@ -69,10 +69,13 @@ public class MenuController {
         return "change-menu";
     }
 
-    @RequestMapping(value="/restoran/delete-menu/{id}", method = RequestMethod.GET)
-    public String deleteRestoran(@PathVariable Long id, MenuModel menu, Model model){
-        String strIdMenu = String.valueOf(id);
-        List<MenuModel> listMenu = menuService.getMenuList();
+    @RequestMapping(value="/menu/delete-menu", method = RequestMethod.POST)
+    public String deleteRestoran(@ModelAttribute RestoranModel restoran, Model model){
+        for(MenuModel menu: restoran.getListMenu()){
+            menuService.deleteMenu(menu);
+        }
+        return "delete-menu";
+        /*List<MenuModel> listMenu = menuService.getMenuList();
         for(MenuModel cariMenu : listMenu){
             if(cariMenu.getId().equals(menu.getId())){
                 menuService.deleteMenu(cariMenu);
@@ -80,6 +83,6 @@ public class MenuController {
                 return "delete-menu";
             }
         }
-        return "error-restoran";
+        return "error-restoran";*/
     }
 }
