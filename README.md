@@ -60,3 +60,28 @@ link tersebut akan menampilkan semua restoran yang ada pada listRestoran.
 
 ![alt text](https://i.ibb.co/XL2t3Bb/image.png "Screenshot viewall")
 
+
+## Tutorial 3
+### What I have learned today
+
+#### 1. Pada class MenuDb, terdapat method findByRestoranIdRestoran, apakah kegunaan dari method tersebut?
+method findByRestoranIdRestoran adalah method untuk yang mengemabalikan list menu dari restoran yang memiliki id sama dengan idRestoran.
+
+#### 2. Pada class RestoranController, jelaskan perbedaan method addRestoranFormPage dan addRestoranSubmit?
+addRestoranFormPage adalah untuk membuat restoran baru dan mengisi data restoran dari form add restoran
+addRestoranSubmit adalah untuk menambah restoran baru dengan data-data yang telah diisi sebelumnya ke table restoran
+
+#### 3. Jelaskan apa kegunaan dari JPA Repository?
+Java Persistence API (JPA) adalah merupakan tool untuk mengolah data relasional. 
+
+#### 4. Sebutkan dan jelaskan di bagian kode mana sebuah relasi antara RestoranModel dan MenuModel dibuat?
+Di kelas RestoranModel di bagian @OneToMany menjelaskan bahwa relasi antara RestoranModel dan MenuModel adalah one-to-many.
+Di kelas MenuModel dibagian @ManyToOne menjelaskan bahwa relasi antara MenuModel dan RestoranModel adalah many-to-one
+
+![alt text](https://i.ibb.co/fN4G6sW/Untitled-Diagram.png "Screenshot relasi")
+
+#### 5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+FetchType.LAZY : untuk jika ingin mengeload menu saat hanya disuruh. misalnya ingin mengeload id menu harus dilakukan method getId().
+CascadeType.ALL : persistence akan menyebarkan semua operasi EntityManager (PERSIST, REMOVE, REFRESH, MERGE, DETACH)
+
+
