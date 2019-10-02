@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http:/>/thymeLeaf.org">
+<html xmlns:th="http://www.thymelaf.org">
     <head>
         <title>View Restoran</title>
         <object th:include="fragments/fragment :: css" th:remove="tag"></object>
@@ -16,7 +16,7 @@
 
         <td> <a th:href="@{/restoran/change/}+${resto.idRestoran}"> Change Data Restoran</a></td>
 
-        <td> <a th:href="@{/restoran/delete/}+${resto.idRestoran}"> Delete Resto Menu</a></td>
+        <td> <a th:href="@{/restoran/delete/}+${resto.idRestoran}"> Delete Restoran</a></td>
         <form th:action="@{/menu/delete-menu}" th:object="${resto}" method="POST">
         <h2> Daftar Menu: </h2>
         <table>
@@ -36,7 +36,7 @@
                     <td th:text="${iterationStatus.count}"></td>
                     <td th:text="${menu.id}"></td>
                     <td th:text="${menu.nama}"></td>
-                    <td th:if="${menu.harga} >= 10000 ? 'diatas 10k' : 'dibawah 10k'"></td>
+                    <td th:text="${menu.harga} >= 10000 ? 'diatas 10k' : 'dibawah 10k'"> </td>
                     <td th:text="${menu.deskripsi}"></td>
                     <td th:text="${menu.durasiMasak}"></td>
                     <td>

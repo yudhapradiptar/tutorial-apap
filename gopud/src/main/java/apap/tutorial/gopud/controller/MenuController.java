@@ -34,6 +34,7 @@ public class MenuController {
         menu.setRestoran(restoran);
 
         model.addAttribute("menu", menu);
+        model.addAttribute("titleNavbar", "Add Menu");
 
         return "form-add-menu";
     }
@@ -43,6 +44,7 @@ public class MenuController {
         menuService.addMenu(menu);
 
         model.addAttribute("nama", menu.getNama());
+        model.addAttribute("titleNavbar", "Add Menu");
 
         return "add-menu";
     }
@@ -58,6 +60,7 @@ public class MenuController {
             }
         }
         model.addAttribute("menu", menuLama);
+        model.addAttribute("titleNavbar", "Change Data Menu");
         return "form-change-menu";
     }
 
@@ -66,6 +69,7 @@ public class MenuController {
     public String changeMenuFormSubmit(@ModelAttribute MenuModel menu,@PathVariable Long id, Model model){
         MenuModel menuBaru = menuService.changeMenu(menu);
         model.addAttribute("menu", menuBaru);
+        model.addAttribute("titleNavbar", "Change Data Menu");
         return "change-menu";
     }
 
@@ -74,6 +78,7 @@ public class MenuController {
         for(MenuModel menu: restoran.getListMenu()){
             menuService.deleteMenu(menu);
         }
+        model.addAttribute("titleNavbar", "Delete Menu");
         return "delete-menu";
         /*List<MenuModel> listMenu = menuService.getMenuList();
         for(MenuModel cariMenu : listMenu){
