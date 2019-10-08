@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,14 +82,6 @@ public class MenuController {
         }
         model.addAttribute("titleNavbar", "Delete Menu");
         return "delete-menu";
-        /*List<MenuModel> listMenu = menuService.getMenuList();
-        for(MenuModel cariMenu : listMenu){
-            if(cariMenu.getId().equals(menu.getId())){
-                menuService.deleteMenu(cariMenu);
-                model.addAttribute("menu", cariMenu);
-                return "delete-menu";
-            }
-        }
-        return "error-restoran";*/
     }
+
 }
