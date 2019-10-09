@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymelaf.org">
-<head>
-    <title> Add Menu </title>
-</head>
-<body>
-<h3> Tambah Produk </h3>
-<form th:action="@{/menu/add}" th:object="${menu}" method="POST">
-    <input type="hidden" th:field="*{restoran}" />
-    Nama: <br>
-    <input type="text" name="nama" />
-    <br>
-    Deskripsi: <br>
-    <input type="text" name="deskripsi" />
-    <br>
-    Harga: <br>
-    <input type="number" name="harga" />
-    <br>
-    durasiMasak: <br>
-    <input type="number" name="durasiMasak" />
-    <br>
-
-
-    <button type="submit"> Submit </button>
-</form>
-
-</body>
+    <head>
+        <title> Add Menu </title>
+        <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+        <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+    </head>
+    <body>
+        <div class="container">
+            <nav th:replace="fragments/fragment :: navbar"></nav>
+            <h3> Tambah Menu </h3>
+            <form th:action="@{/menu/add}" th:object="${menu}" method="POST" class="form-inline">
+                <input type="hidden" th:field="*{restoran}" />
+            <table id="myTable" class=" table order-list">
+                <thead>
+                <tr>
+                    <td>Nama</td>
+                    <td>Deksripsi</td>
+                    <td>Harga</td>
+                    <td>Durasi Masak</td>
+                    <td><input type="button" id="addrow" value="Add Row" /></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="col-sm-4">
+                        <input type="text" name="nama" class="form-control" />
+                    </td>
+                    <td class="col-sm-4">
+                        <input type="text" name="deskripsi"  class="form-control"/>
+                    </td>
+                    <td class="col-sm-4">
+                        <input type="number" name="harga"  class="form-control"/>
+                    </td>
+                    <td class="col-sm-4">
+                        <input type="number" name="durasiMasak"  class="form-control"/>
+                    </td>
+                    <td class="col-sm-4">
+                        <input type="button" class="buttonDelete btn btn-md btn-danger "  value="Delete">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+                <button type="submit"> Submit </button>
+            </form>
+        </div>
+    </body>
 </html>

@@ -85,3 +85,21 @@ FetchType.LAZY : untuk jika ingin mengeload menu saat hanya disuruh. misalnya in
 CascadeType.ALL : persistence akan menyebarkan semua operasi EntityManager (PERSIST, REMOVE, REFRESH, MERGE, DETACH)
 
 
+## Tutorial 4
+### What I have learned today
+
+#### 1.Jelaskan yang anda pelajari dari melakukan latihan nomor 2, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 2
+	1). Mengubah text di navbar-brand di fragments.html menjadi ${titleNavbar}
+	2). Menambahkan modelAttribute di setiap URL mapping di RestoranController dan MenuController agar titleNavbar memiliki value nama page yang dibuka
+	
+#### 2. Jelaskan yang anda pelajari dari latihan nomor 3, dan jelaskan tahapan bagaimana anda menyelesaikan latihan nomor 3
+	1). Mengubah file form-add-menu.html agar form add menu menyamping dengan cara membuat tabel dan box input menjadi kolom
+	2). Membuat file addMenu.js dan membuat method menambah row dan menghapus row
+	3). Mengubah file fragments.html agar file addMenu.js dapat berjalan
+	4). Mengubah file form-add-menu.html agar button add row button delete row dapat memanggil method di addMenu.js
+
+#### 3. Jelaskan perbedaan th:include dan th:replace
+	th:include akan memasukkan konten fragments ke host tag (di tutorial ini host tag nya adalah <object>), sedangkan th:replace akan mereplace host tag dengan fragments.
+	
+#### 4. Jelaskan bagaimana penggunaan th:object beserta tujuannya
+	th:object digunakan dengan th:action untuk form input. th:action digunakan untuk memberikan url sedangkan th:action digunakan untuk menspesifikasikan object yang akan diikat oleh data form yang disubmit
