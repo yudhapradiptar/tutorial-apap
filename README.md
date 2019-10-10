@@ -109,21 +109,22 @@ CascadeType.ALL : persistence akan menyebarkan semua operasi EntityManager (PERS
 ### What I have learned today
 
 #### Coverage MenuService sebelum unit test dibuat
-		![alt text](https://i.ibb.co/Tk2dvTs/test-coverage-0.jpg "Screenshot coverage sebelum")
-		![alt text](https://i.ibb.co/6byc1n4/Test-coverage-100.jpg "Screenshot coverage setelah")
+
+![alt text](https://i.ibb.co/Tk2dvTs/test-coverage-0.jpg "Screenshot coverage sebelum")
+
+![alt text](https://i.ibb.co/6byc1n4/Test-coverage-100.jpg "Screenshot coverage setelah")
 
 #### 1. Jelaskan bagian mana saja dari test yang dibuat pada latihan no 2 adalah given, when, dan and then
-		##### a. Given
-					bagian given adalah dari inisiasi dummyMenu hingga ketika menentukan memanggil method dari restoranService akan mengembalikan restoranViewed
-		##### b. When
-					bagian when adalah ketika pemanggilan mockMvc.perform(get("/restoran/view?idRestoran=1")) dan akan mengembalikan halaman view
-		##### c. andThen
-					bagian andThen adalah ketika pemanggilan method .andExpect(MockMvcResultMatchers.status().isOk()) dan .andExpect(model().attribute("resto", hasProperty("nama", is("dummy 1")))); yang berfungsi untuk mengecek status dan nama restoran
+a. Given
+	bagian given adalah dari inisiasi dummyMenu hingga ketika menentukan memanggil method dari restoranService akan mengembalikan restoranViewed
+b. When
+	bagian when adalah ketika pemanggilan mockMvc.perform(get("/restoran/view?idRestoran=1")) dan akan mengembalikan halaman view
+c. andThen
+	bagian andThen adalah ketika pemanggilan method .andExpect(MockMvcResultMatchers.status().isOk()) dan .andExpect(model().attribute("resto", hasProperty("nama", is("dummy 1")))); yang berfungsi untuk mengecek status dan nama restoran
 
 #### 2. Jelaskan perbedaan line coverage dan logic coverage.
-		##### line coverage
-					line coverage hanya menghitung jumlah line yang tercover saat melakukan testing
-		##### logic coverage
-					logic coverage mengcover code yang berupa branching (if, else)
+line coverage: hanya menghitung jumlah line yang tercover saat melakukan testing
+logic coverage: mengcover code yang berupa branching (if, else)
+
 #### 3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test? Mengapa seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin terjadi?
-		pada keadaan ideal unit test harus dibuat terlebih dahulu karena unit test adalah sebagai bagaimana kode harus berjalan dan jika unit test dibuat setelah kode selesai akan meningkatkan resiko terjadinya error
+pada keadaan ideal unit test harus dibuat terlebih dahulu karena unit test adalah sebagai bagaimana kode harus berjalan dan jika unit test dibuat setelah kode selesai akan meningkatkan resiko terjadinya error
