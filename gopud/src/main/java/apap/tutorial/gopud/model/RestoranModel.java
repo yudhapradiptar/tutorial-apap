@@ -12,7 +12,7 @@ public class RestoranModel implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idRestoran;
+    private Long idRestoran;
 
     @NotNull
     @Size(max = 20)
@@ -35,11 +35,11 @@ public class RestoranModel implements Serializable{
     @OneToMany(mappedBy = "restoran", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<MenuModel> listMenu;
 
-    public long getIdRestoran() {
+    public Long getIdRestoran() {
         return idRestoran;
     }
 
-    public void setIdRestoran(long idRestoran) {
+    public void setIdRestoran(Long idRestoran) {
         this.idRestoran = idRestoran;
     }
 
