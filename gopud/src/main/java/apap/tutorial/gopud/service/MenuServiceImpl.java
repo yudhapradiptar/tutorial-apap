@@ -30,13 +30,7 @@ public class MenuServiceImpl implements MenuService{
 
     @Override
     public MenuModel changeMenu(MenuModel menuModel){
-        List<MenuModel> listMenu = menuDb.findAll();
-        MenuModel targetMenu = null;
-        for(MenuModel menu:listMenu){
-            if(menu.getId().equals(menuModel.getId())){
-                targetMenu=menu;
-            }
-        }
+        MenuModel targetMenu = menuDb.findById(menuModel.getId()).get();
         try{
             targetMenu.setNama(menuModel.getNama());
             targetMenu.setHarga(menuModel.getHarga());
