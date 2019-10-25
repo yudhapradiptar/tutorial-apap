@@ -9,35 +9,26 @@
         <div class="container">
             <nav th:replace="fragments/fragment :: navbar"></nav>
             <h3> Tambah Menu </h3>
-            <form th:action="@{/menu/add}" th:object="${menu}" method="POST" class="form-inline">
-                <input type="hidden" th:field="*{restoran}" />
-            <table id="myTable" class=" table order-list">
+            <form th:action="@{'/menu/add/' + ${resto.idRestoran}}" th:object="${resto}" method="POST">
+                <input type="hidden" th:field="*{idRestoran}" />
+            <table>
                 <thead>
                 <tr>
-                    <td>Nama</td>
-                    <td>Deksripsi</td>
-                    <td>Harga</td>
-                    <td>Durasi Masak</td>
-                    <td><input type="button" id="addrow" value="Add Row" /></td>
+                    <th>Nama</th>
+                    <th>Deksripsi</th>
+                    <th>Harga</th>
+                    <th>Durasi Masak</th>
+                    <button type="submit" name="addRow" class="btn btn-primary">Add Row</button>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td class="col-sm-4">
-                        <input type="text" name="nama" class="form-control" />
-                    </td>
-                    <td class="col-sm-4">
-                        <input type="text" name="deskripsi"  class="form-control"/>
-                    </td>
-                    <td class="col-sm-4">
-                        <input type="number" name="harga"  class="form-control"/>
-                    </td>
-                    <td class="col-sm-4">
-                        <input type="number" name="durasiMasak"  class="form-control"/>
-                    </td>
-                    <td class="col-sm-4">
-                        <input type="button" class="buttonDelete btn btn-md btn-danger "  value="Delete">
-                    </td>
+                <tr th:each="menu, iterationStatus : *{listMenu}">
+                    <td><input th:field="*{listMenu[__${iterationStatus.index}__].nama}" type="text" name="nama" class="form-control" placeholder="Masukkan nama.."/></td>
+                    <td><input th:field="*{listMenu[__${iterationStatus.index}__].deskripsi}" type="text" name="deskripsi" class="form-control" placeholder="Masukkan deskripsi.."/></td>
+                    <td><input th:field="*{listMenu[__${iterationStatus.index}__].harga}" type="number" name="harga" class="form-control" placeholder="Masukkan harga.."/></td>
+                    <td><input th:field="*{listMenu[__${iterationStatus.index}__].durasiMasak}" type="number" name="durasiMasak" class="form-control" placeholder="Masukkan durasi masak.."/></td>
+                    <td>
+                        <button class="btn btn-danger" type="submit" name="removeRow" th:value="${iterationStatus.index}">Hapus</button> </td>
                 </tr>
                 </tbody>
             </table>

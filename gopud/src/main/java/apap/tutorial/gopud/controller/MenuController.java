@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,22 +32,43 @@ public class MenuController {
     private String addProductFormPage(@PathVariable(value="idRestoran") Long idRestoran, Model model){
         MenuModel menu = new MenuModel();
         RestoranModel restoran = restoranService.getRestoranByIdRestoran(idRestoran).get();
-        menu.setRestoran(restoran);
+        List<MenuModel> menuList = new ArrayList<>();
+        menuList.add(menu);
 
-        model.addAttribute("menu", menu);
+        restoran.setListMenu(menuList);
+
+        model.addAttribute("resto", restoran);
         model.addAttribute("titleNavbar", "Add Menu");
 
         return "form-add-menu";
     }
 
     @RequestMapping(value = "menu/add", method = RequestMethod.POST)
-    private String addProductSubmit(@ModelAttribute MenuModel menu, Model model){
+    private String addProductSubmit(@ModelAttribute RestoranModel restoran, MenuModel menu, Model model){
+        RestoranModel restorann = restoranService.getRestoranByIdRestoran(restoran.getIdRestoran()).get();
+
+        for(MenuModel menuTambahan: restoran.getListMenu()){
+            menu.setRestoran(restorann);
+            menuService.addMenu(menuTambahan);
+        }
         menuService.addMenu(menu);
 
         model.addAttribute("nama", menu.getNama());
         model.addAttribute("titleNavbar", "Add Menu");
 
         return "add-menu";
+    }
+
+    @RequestMapping(value = "/menu/add/{restoranId}", params= {"addRow"}, method=RequestMethod.POST)
+    private String addRow(@ModelAttribute RestoranModel restoran, Model model) {
+
+        if (restoran.getListMenu() == null || restoran.getListMenu().size() == 0) {
+            restoran.setListMenu(new ArrayList<>());
+        }
+        restoran.getListMenu().add(new MenuModel());
+        model.addAttribute("resto", restoran);
+
+        return "form-add-menu";
     }
 
     //API yang digunakan untuk menuju halaman form change restoran
