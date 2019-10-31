@@ -128,3 +128,16 @@ logic coverage: mengcover code yang berupa branching (if, else)
 
 #### 3. Pada keadaan ideal, apa yang seharusnya dibuat terlebih dahulu, code atau unit test? Mengapa seperti itu? Apa akibatnya jika urutannya dibalik, adakah risiko tak terlihat yang mungkin terjadi?
 pada keadaan ideal unit test harus dibuat terlebih dahulu karena unit test adalah sebagai bagaimana kode harus berjalan dan jika unit test dibuat setelah kode selesai akan meningkatkan resiko terjadinya error
+
+
+## Tutorial 6
+### What I have learned today
+
+#### 1. Apa itu postman? Apa kegunaan dari postman?
+Postman adalah aplikasi yang dapat mengakses method yang tidak dapat diakses oleh URL seperti PUT,DELETE,POST,dll. Kegunaan dari postman adalah untuk mengakses method tadi tanpa harus membuat terlebih dahulu sistem yang menerima API dari kita.
+
+#### 2. Apa kegunaan dari annotation @JsonIgnoreProperties?
+JsonIgnoreProperties adalah annotation yang dapat digunakan untuk membenamkan serialization properties atau menngabaikan proses read JSON properties 
+
+#### 3. Apa itu ResponseEntity dan apa kegunaannya?
+ResponseEntity adalah extention dari HttpEntoty yang menambahkan HttpStatusCode. Digunakan di RestTemplate dan method @Controller
