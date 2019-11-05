@@ -84,4 +84,14 @@ public class RestoranRestController {
 
     @GetMapping(value = "/full")
     private Mono<RestoranDetail> postStatus() {return restoranRestService.postStatus();}
+
+    @GetMapping(value="/restoran/chef")
+    private Mono<String> retrieveChef(@RequestParam("namaChef") Mono<String> nama){
+        try{
+            return restoranRestService.getChef(namaChef);
+        } catch (NoSuchElementException e){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Chef tidak ditemukan");
+        }
+    }
 }
