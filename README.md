@@ -141,3 +141,24 @@ JsonIgnoreProperties adalah annotation yang dapat digunakan untuk membenamkan se
 
 #### 3. Apa itu ResponseEntity dan apa kegunaannya?
 ResponseEntity adalah extention dari HttpEntoty yang menambahkan HttpStatusCode. Digunakan di RestTemplate dan method @Controller
+
+
+## Tutorial 7
+### What I have learned today
+
+#### 1.Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi?
+
+- Otentikasi adalah memvalidasi kredensial seperti username dan password contoh nya adalah pada fitur login
+- Otorisasi adalah memberikan izin untuk mengakses atau melakukan sesuatu contoh nya adalah hanya admin yang dapat menambah user baru
+
+#### 2.Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerjanya!
+
+BCryptPasswordEncoder adalah untuk melakukan encode password yang diinput oleh user. Ketika menambahkan user baru, sebelum user dan data user disimpan pada database, metode encode password dipanggil yang melakukan encode password dengan BCryptPasswordEncoder dan kemudian baru user dan datanya disimpan.
+
+#### 3.Jelaskan secara singkat apa itu UUID dan mengapa kita memakai UUID di UserModel.java?
+
+UUID direpresentasikan dalam nilai long 128-bit bersifat unik. Dalam UserModel.java, UUID digunakan untuk men-generate id
+
+#### 4.Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java? 
+
+UserDetailsService interface digunakan untuk mendapatkan user dengan data user yaitu loadUserByUsername. UserDetailsServiceImpl digunakan untuk memberikan otoritas kepada user salah satu contohnya adalah untuk memberikan otorisasi kepada admin untuk menambah user baru. 
