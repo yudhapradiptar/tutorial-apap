@@ -31,8 +31,8 @@ public class MenuRestServiceImpl implements MenuRestService{
 
     @Override
     public MenuModel getMenuByIdMenu(Long idMenu){
-        MenuModel menu = menuDb.findByIdMenu(idMenu);
-        return menu;
+        Optional<MenuModel> menu = menuDb.findById(idMenu);
+        return menu.get();
     }
 
     @Override
