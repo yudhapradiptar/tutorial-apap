@@ -1,6 +1,7 @@
 import React from "react";
 import List from "./components/List";
 import dummyItems from "./items.json";
+import EmptytState from "./components/EmptyState";
 
 export default class App extends React.Component {
 
@@ -40,39 +41,70 @@ export default class App extends React.Component {
   render() {
     
     const { favItems } = this.state;
-    //const newItems = [...this.state.favItems];
-
-    return (
-      <div className="container-fluid">
-        <h1 className="text-center">
-          Welcome!
-          <small>Class-based</small>
-        </h1>
-        <button onClick={()=>this.toggleHide()}>Hide Fav</button>
-        <div className="container pt-3">
-          <div className="row">
-            <div className="col-sm">
-              <List
-                title="Our Menu"
-                items={dummyItems}
-                onItemClick={this.handleItemClick}
-              />
-            </div>
-            <div className = "col-sm">
-              {
-                this.state.showMe?
-                null
-                :
+    if(this.state.favItems.length===0){
+      return (
+        <div className="container-fluid">
+          <h1 className="text-center">
+            Welcome!
+            <small>Class-based</small>
+          </h1>
+          <button onClick={()=>this.toggleHide()}>Hide Fav</button>
+          <div className="container pt-3">
+            <div className="row">
+              <div className="col-sm">
                 <List
-                  title = "My Favorite"
-                  items = {favItems}
-                  onItemClick={this.deleteItemClick}
+                  title="Our Menu"
+                  items={dummyItems}
+                  onItemClick={this.handleItemClick}
                 />
-              }
+              </div>
+              <div className = "col-sm">
+                {
+                  this.state.showMe?
+                  null
+                  :
+                  <EmptytState
+                    
+                  />
+                }
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="container-fluid">
+          <h1 className="text-center">
+            Welcome!
+            <small>Class-based</small>
+          </h1>
+          <button onClick={()=>this.toggleHide()}>Hide Fav</button>
+          <div className="container pt-3">
+            <div className="row">
+              <div className="col-sm">
+                <List
+                  title="Our Menu"
+                  items={dummyItems}
+                  onItemClick={this.handleItemClick}
+                />
+              </div>
+              <div className = "col-sm">
+                {
+                  this.state.showMe?
+                  null
+                  :
+                  <List
+                    title = "My Favorite"
+                    items = {favItems}
+                    onItemClick={this.deleteItemClick}
+                  />
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }

@@ -162,3 +162,47 @@ UUID direpresentasikan dalam nilai long 128-bit bersifat unik. Dalam UserModel.j
 #### 4.Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut padahal kita sudah memiliki class UserRoleServiceImpl.java? 
 
 UserDetailsService interface digunakan untuk mendapatkan user dengan data user yaitu loadUserByUsername. UserDetailsServiceImpl digunakan untuk memberikan otoritas kepada user salah satu contohnya adalah untuk memberikan otorisasi kepada admin untuk menambah user baru. 
+
+
+## Tutorial 8
+### What I Have learned today
+
+#### 1. Jelaskan apa yang Anda lakukan di latihan dalam satu paragraf per-soal. Berikan screenshot sebagai ilustrasi dari apa yang Anda jelaskan.
+  
+##### Latihan no 1
+Menambahkan hidden={!checked} pada tag input di komponen item karena pada item di list Our Menu state dari checked sebelum checkbox di klik adalah false dan hidden menjadi true dan karena hidden menjadi true, checkbox tidak akan muncul dan tidak bisa di klik.
+Sedangkan pada item di list My Favorit, checkbox selalu tercentang saat telah ditambah dari list Our Menu dan jika checkbox yang telah tercentang di item My Favorit di klik, item akan hilang dari list tersebut.<br/>
+![alt text](https://i.ibb.co/rZJXr6G/Latihan-1-tutorial-8.png "Screenshot hide checkbox") <br/>
+
+##### Latihan no 2
+Pada tutorial, setiap item di Our Menu menjadi toggle untuk menambah My Favorit dan menghilangkan dari My Favorit karena terdapat fungsi kondisional if else <br/>
+![alt text](https://i.ibb.co/0p7d03L/Latihan-2-tutorial-8.png "Screenshot If Else toggle") <br/>
+yang ketika item di list Our Menu di klik akan melalui If Else tersebut yang jika item tersebut belum ditambahkan ke list My Favorit jika di klik akan ditambahkan ke list My Favorit, dan jika item sudah ada di list My Favorit maka item akan dihilangkan dari list My Favorit.<br/>
+![alt text](https://i.ibb.co/fCJ4wzf/Latihan-3-tutorial-8.png "Screenshot deleteItemClick") <br/>
+dengan menambahkan fungsi deleteItemClick yang jika diklik akan hanya memanggil fungsi yang hanya terdapat pada else di fungsi sebelumnya dan menghapus fungsi else di fungsi handleItemClick <br/>
+![alt text](https://i.ibb.co/TqNTpfk/Latihan-2-3-tutorial-8.png "Screenshot deleteItemClick") <br/>
+jika item di Our Menu di klik dan item tersebut belum ada di list My Favorit maka fungsi handleItemClick akan terpanggil <br/>
+![alt text](https://i.ibb.co/b54f3th/Latihan-2-4-tutorial-8.png "Screenshot item Our Menu")<br/>
+dan jika item di My Favorit di klik, fungsi deleteItemClick yang akan terpanggil <br/>
+![alt text](https://i.ibb.co/b1nn3x2/Latihan-2-5-tutorial-8.png "Screenshot item My Favorit") <br/>
+
+##### Latihan no 3
+Hal yang pertama dilakukan adalah membuat state showMe yang bernilai true pada kelas Apps.js <br/>
+![alt text](https://i.ibb.co/VV52NNh/Latihan-3-1-tutorial-8.png "Screenshot state showMe")<br/>
+Kemudian pada kelas Apps.js juga, membuat fungsi bernama toggleHide yang mengubah state dari showMe. Jika state showMe adalah false maka jika button di klik state showMe menjadi true, dan juga sebaliknya. <br/>
+![alt text](https://i.ibb.co/F7TzWWc/Latihan-3-2-tutorial-8.png "Screenshot toggleHide") <br/>
+Lalu membuat tombol itu sendiri yang jika diklik memanggil fungsi toggleHide <br/>
+![alt text](https://i.ibb.co/TmJgsPs/Latihan-3-3-tutorial-8.png "Screenshot button") <br/>
+Kemudian membuat kondisional yang jika state showMe bernilai true akan menampilkan list My Favorite dan akan menampilkan Null jika state showMe bernilai false <br/>
+![alt text](https://i.ibb.co/wL7bbwq/Latihan-3-4-tutorial-8.png "Screenshot button") <br/>
+Dan juga membuat kondisional untuk jika state showMe bernilai true akan menampilkan EmptyState dan akan menampilkan Null jika state showMe bernilai false <br/>
+![alt text](https://i.ibb.co/dJFYzbF/Latihan-3-5-tutorial-8.png "Screenshot button") <br/>
+
+##### Latihan no 4
+Hal yang pertama dilakukan adalah mengubah return di Apps.js. Hal yang diubah adalah jika sebelumnya hal yang di return dengan list Our Menu adalah list FavItem maupun list FavItem itu kosong atau ada isinya, sekarang diubah hanya mereturn list FavItem jika list tersebut ada isinya. Jika list FavItem tidak ada isinya, maka akan mereturn komponen EmptyState. <br/>
+![alt text](https://i.ibb.co/ydZMYRP/Latihan-4-1-tutorial-8.png "Screenshot if Empty") <br/>
+Sedangkan jika list FavItem ada isinya akan tetap mereturn list tersebut seperti sebelumnya <br/>
+![alt text](https://i.ibb.co/mb2vtXm/Latihan-4-2-tutorial-8.png "Screenshot if Not Empty") <br/>
+dan berikut adalah isi dari komponen EmptyState.js <br/>
+![alt text](https://i.ibb.co/KNPKY8V/Latihan-4-3-tutorial-8.png "Screenshot EmptyState.js") <br/>
+
