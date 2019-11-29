@@ -30,20 +30,21 @@ public class MenuRestServiceImpl implements MenuRestService{
     public List<MenuModel> retriveListMenu() {return menuDb.findAllByOrderByNamaAsc();}
 
     @Override
-    public MenuModel getMenuByIdMenu(Long idMenu){
+    public Optional<MenuModel> getMenuByIdMenu(Long idMenu){
         Optional<MenuModel> menu = menuDb.findById(idMenu);
-        return menu.get();
+        return menu;
     }
 
     @Override
     public void deleteMenu(Long idMenu){
-        MenuModel menu = getMenuByIdMenu(idMenu);
-        menuDb.delete(menu);
+        Optional<MenuModel> menu = getMenuByIdMenu(idMenu);
+        menuDb.delete(menu.get());
     }
 
     @Override
     public MenuModel changeMenu(Long idMenu, MenuModel menuUpdate){
-        MenuModel menu = getMenuByIdMenu(idMenu);
+        Optional<MenuModel> menuBaru = getMenuByIdMenu(idMenu);
+        MenuModel menu = menuBaru.get();
         menu.setNama(menuUpdate.getNama());
         menu.setHarga(menuUpdate.getHarga());
         menu.setDurasiMasak(menuUpdate.getDurasiMasak());

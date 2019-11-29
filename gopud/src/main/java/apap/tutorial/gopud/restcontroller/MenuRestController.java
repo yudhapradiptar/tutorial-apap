@@ -42,7 +42,7 @@ public class MenuRestController {
 
     @GetMapping(value = "/menu/{idMenu}")
     private MenuModel getMenu(@PathVariable("idMenu") Long idMenu){
-        try{ return menuRestService.getMenuByIdMenu(idMenu);
+        try{ return menuRestService.getMenuByIdMenu(idMenu).get();
         } catch (NoSuchElementException e){
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND, "ID Menu " + String.valueOf(idMenu) + " Not Found");
