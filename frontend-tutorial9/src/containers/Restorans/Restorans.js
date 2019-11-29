@@ -19,7 +19,6 @@ class Restorans extends Component{
             rating: "",
             search: '',
             activePage: 1,
-            restoransInPage: []
         }
     }
     
@@ -27,17 +26,25 @@ class Restorans extends Component{
     loadRestorans = async () => {
         const fetchedRestorans = [];
         const response = await Axios.get("/restorans");
+        const x = 0;
+        const y = 5;
         for(let key in response.data) {
             fetchedRestorans.push({
                 ...response.data[key]
             });
         }
-        this.setState({
-            restorans: fetchedRestorans
-        })
-        this.setState({
-            restoransInPage: fetchedRestorans.slice(0,3)
-        });
+        // this.setState({
+        //     restorans: fetchedRestorans
+        // })
+        if(this.state.activePage===1){
+            this.setState({
+                restorans: fetchedRestorans.slice(x,y)
+            })
+        } else {
+            this.setState({
+                restorans: fetchedRestorans.slice(y*(this.state.activePage-1),y*(this.state.activePage-1)+5)
+            })
+        }
     }
 
     updateSearch(e) {
@@ -126,6 +133,12 @@ class Restorans extends Component{
         await this.loadRestorans();
     }
 
+    changePage(x) {
+        this.setState({activePage: x});
+        console.log(this.state.activePage);
+        this.loadRestorans();
+    }
+
 
 
     
@@ -173,14 +186,21 @@ class Restorans extends Component{
                     )}
                 </div>
                 <div className={classes.ButtonLayout}>
+                    <button onClick={() => this.changePage(1)}>1</button>
+                    <button onClick={() => this.changePage(2)}>2</button>
+                    <button onClick={() => this.changePage(3)}>3</button>
+                    <button onClick={() => this.changePage(4)}>4</button>
+                    <button onClick={() => this.changePage(5)}>5</button>
+                </div>
+                {/* <div className={classes.ButtonLayout}>
                     <div className={classes.pagination}>
                         <span>&laquo;</span>
-                        <span className={classes.activePage}>1</span>
-                        <span>2</span>
-                        <span>3</span>
-                        <span>4</span>
+                        <span onClick={() => this.changePage(1)}>1</span>
+                        <span onClick={() => this.changePage(2)}>2</span>
+                        <span onClick={() => this.changePage(3)}>3</span>
+                        <span onClick={() => this.changePage(4)}>4</span>
                     </div>
-                </div>
+                </div> */}
             </React.Fragment>
         )
     }
