@@ -18,6 +18,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = "http://localhost:3000")
 public class RestoranRestController {
     @Autowired
     private RestoranRestService restoranRestService;
@@ -26,6 +27,9 @@ public class RestoranRestController {
     private RestoranModel createRestoran(@Valid @RequestBody RestoranModel restoran,
                                          BindingResult bindingResult){
         if(bindingResult.hasFieldErrors()){
+            for(int i=0;i<10;i++){
+                System.out.println(restoran.getNama());
+            }
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Request body has invalid type or missing lead");
         }

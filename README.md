@@ -141,3 +141,36 @@ JsonIgnoreProperties adalah annotation yang dapat digunakan untuk membenamkan se
 
 #### 3. Apa itu ResponseEntity dan apa kegunaannya?
 ResponseEntity adalah extention dari HttpEntoty yang menambahkan HttpStatusCode. Digunakan di RestTemplate dan method @Controller
+
+## Tutorial 9
+### What I have learned today
+
+#### 1. Ceritakan langkah - langkah yang kalian lakukan untuk solve LATIHAN no.1, dan mengapa kalian melakukan langkah - langkah tersebut?
+Untuk menyelesaikan latihan no 1, yang dilakukan adalah melakukan this.setState nama, alamat, nomorTelepon, dan rating menjadi string kosong ('') pada addRestoranHandler. Karena sebelumnya untuk melakukan add Restoran
+nama, alamat, nomorTelepon, dan rating di setState menjadi apa yang diisi di form add restoran dan state dari nama, alamat, nomorTelepon, dan rating itu yang disubmit. Jadi disini setelah disubmit, nama, alamat, nomorTelepon, dan rating di setState kembali menjadi string kosong ('').
+
+#### 2. Jelaskan fungsi dari async dan await!
+- keyword "async" berfungsi untuk memanggil fungsi async yang berguna untuk melakukan data fetching dari url dan melakukan parse Json Response.
+- await berfungsi untuk keluar dari fungsi async untuk sementara dan menlanjutkan nya kembali setelah task yang diberikan selesai
+
+#### 3. Masukkan jawaban dari TODO (Screenshot) pada Component Lifecycle pada pertanyaan ini.
+1. ![alt text](https://i.postimg.cc/ry7fzyCD/DO-1-2-tutorial9.png "")
+2. ![alt text](https://i.postimg.cc/Rh8tp0d2/DO-2-1-tutorial9.png "")
+3. ![alt text](https://i.postimg.cc/6QQPnj7q/DO-2-2-tutorial9.png "")
+4. ![alt text](https://i.postimg.cc/BnzT7MYX/DO-2-3-tutorial9.png "")
+5. ![alt text](https://i.postimg.cc/XqNBYCHR/DO-2-4-tutorial9.png "")
+
+#### 4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. 
+##### Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”.
+- componentDidMount: melakukan task yang ditentukan as soon as component is mounted
+contoh: ![alt text](https://i.postimg.cc/3JzGhdhw/tutorial94-1.png "componentDidMount")
+pada contoh ini setelah component mounted, task yang akan dilakukan adalah log console, memanggil loadRestorans, dan melakukan setState pada filtered
+- shouldComponentUpdate:  method ini berguna untuk mengeluarkan component dari update life cycle jika tidak ada alasan untuk 
+meng apply render baru contoh:
+![alt text](https://i.postimg.cc/tRMVj2Gb/tutorial94-2.png "shouldComponentUpdate")
+- componentDidUpdate: metode ini tidak terpanggil pada initial render tetapi dipanggil setelah component terupdate.
+metode ini baik digunakan untuk melakukan sesuatu pada DOM setelah component terupdate.
+- componentWillReceiveProps: metode ini terpanggil sebelum mounted component menerima props baru.
+metode ini baik digunakan untuk mengupdate state setelah ada props change.
+- componentWillUnmount: metode ini dipanggil sebelum component di unmount atau destroyed.
+Metode ini baik digunakan untuk membersihkan hal-hal yang perlu dibersihkan sebelum component di unmount atau destroyed.
