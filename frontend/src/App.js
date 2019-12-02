@@ -10,6 +10,10 @@ export default class App extends React.Component {
   };
 
   state = {
+    backgroundColor: 'white'
+  };
+
+  state = {
     favItems: []
   };
 
@@ -36,22 +40,33 @@ export default class App extends React.Component {
   toggleHide = () => {
     this.setState({showMe:!this.state.showMe});
   }
+
+  toggleColor = () => {
+    console.log(this.state.backgroundColor);
+    if(this.state.backgroundColor==='white'){
+      this.setState({backgroundColor: 'black'});
+    } else {
+      this.setState({backgroundColor: 'white'});
+    }
+  }
   // for class based component, you need to provide render
   // function
   render() {
     
     const { favItems } = this.state;
+    const { backgroundColor } = this.state;
     if(this.state.favItems.length===0){
       return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{backgroundColor: backgroundColor}}>
           <h1 className="text-center">
             Welcome!
             <small>Class-based</small>
           </h1>
           <button onClick={()=>this.toggleHide()}>Hide Fav</button>
+          <button onClick={()=>this.toggleColor()}>Change Color</button>
           <div className="container pt-3">
             <div className="row">
-              <div className="col-sm">
+              <div className="col-sm" style={{backgroundColor: backgroundColor}}>
                 <List
                   title="Our Menu"
                   items={dummyItems}
@@ -74,15 +89,16 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{backgroundColor: backgroundColor}}>
           <h1 className="text-center">
             Welcome!
             <small>Class-based</small>
           </h1>
           <button onClick={()=>this.toggleHide()}>Hide Fav</button>
+          <button onClick={()=>this.toggleColor()}>Change Color</button>
           <div className="container pt-3">
             <div className="row">
-              <div className="col-sm">
+              <div className="col-sm" style={{backgroundColor: backgroundColor}}>
                 <List
                   title="Our Menu"
                   items={dummyItems}
